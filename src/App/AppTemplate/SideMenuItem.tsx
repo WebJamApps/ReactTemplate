@@ -8,7 +8,6 @@ import type { Ibook } from 'src/providers/utils';
 import commonUtils from 'src/lib/commonUtils';
 import { ContentContext } from 'src/providers/Content.provider';
 import type { ImenuItem } from './menuConfig';
-import { GoogleButtons } from './GoogleButtons';
 
 export function IconAndText({ menu }: { menu: ImenuItem }): JSX.Element {
   return (
@@ -69,25 +68,6 @@ export const setBulletin = (mItem: ImenuItem, books: any): ImenuItem => {
   return m;
 };
 
-interface IcontinueMenuItemProps {
-  menu: ImenuItem,
-  index: number,
-  auth: Iauth,
-  pathname: string,
-}
-export const ContinueMenuItem = (props:IcontinueMenuItemProps): JSX.Element | null => {
-  const {
-    menu, index, auth, pathname,
-  } = props;
-  if (menu.type === 'googleLogin' && !auth.isAuthenticated && pathname === '/staff') {
-    return <GoogleButtons key="googleLogin" type="login" index={index} />;
-  }
-  if (menu.type === 'googleLogout' && auth.isAuthenticated) {
-    return <GoogleButtons key="googleLogout" type="logout" index={index} />;
-  }
-  return null;
-};
-
 export const checkIsAllowed = (menu: ImenuItem, auth: Iauth, userRoles: string[]) => {
   if (menu.auth && (!auth.isAuthenticated || userRoles.indexOf(auth.user.userType) === -1)) return false;
   return true;
@@ -106,7 +86,6 @@ export function SideMenuItem(props: IsideMenuItemProps): JSX.Element | null {
   useEffect(() => { void getNews(); }, []);
   const { auth } = useContext(AuthContext);
   const location = useLocation();
-  const { pathname } = location;
   const userRoles: string[] = commonUtils.getUserRoles();
   const isAllowed = checkIsAllowed(menu, auth, userRoles);
   if (!isAllowed) return <> </>;
@@ -126,8 +105,6 @@ export function SideMenuItem(props: IsideMenuItemProps): JSX.Element | null {
       />
     );
   }
-  const cmiProps = {
-    menu: m, index, auth, pathname, handleClose,
-  };
-  return <ContinueMenuItem {...cmiProps} />;
+
+  return null;
 }

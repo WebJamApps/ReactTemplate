@@ -1,7 +1,5 @@
 import renderer from 'react-test-renderer';
-import store from 'src/redux/store';
-import { App, showAdminDashboard, checkIsAdmin } from 'src/App';
-import { Provider } from 'react-redux';
+import { App } from 'src/App';
 import commonUtils from 'src/lib/commonUtils';
 
 describe('App component', () => {
@@ -18,19 +16,7 @@ describe('App component', () => {
       },
       writable: true,
     });
-    const app = renderer.create(<Provider store={store.store}><App /></Provider>).toJSON();
+    const app = renderer.create(<App />).toJSON();
     expect(app).toMatchSnapshot();
-  });
-  it('showAdminDashboard when isAdmin', () => {
-    const result = showAdminDashboard(true);
-    expect(result).not.toBe(null);
-  });
-  it('checkIsAdmin', () => {
-    const setIsAdmin = jest.fn();
-    process.env.userRoles = JSON.stringify({ roles: ['tester'] });
-    checkIsAdmin({
-      error: '', token: 'token', isAuthenticated: true, user: { userType: 'tester', email: 'tester@tesing.com' },
-    }, setIsAdmin);
-    expect(setIsAdmin).toHaveBeenCalledWith(true);
   });
 });

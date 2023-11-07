@@ -1,8 +1,7 @@
 import {
-  ContinueMenuItem, MakeLink, checkIsAllowed, setBulletin, sortBulletins,
+  MakeLink, checkIsAllowed, setBulletin, sortBulletins,
 } from 'src/App/AppTemplate/SideMenuItem';
 import renderer from 'react-test-renderer';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
@@ -50,50 +49,6 @@ describe('SideMenuItem', () => {
     ];
     const result = setBulletin(mItem, books);
     expect(result.link).toBe('');
-  });
-  it('shows login button when on staff page and not already authenticated', () => {
-    const props = {
-      menu: {
-        classname: '', type: 'googleLogin', iconClass: '', link: '', name: '',
-      },
-      index: 1,
-      auth: {
-        isAuthenticated: false,
-        error: '',
-        token: '',
-        user: {
-          userType: '',
-          email: '',
-        },
-      },
-      pathname: '/staff',
-      handleClose: jest.fn(),
-    };
-    const result: any = renderer.create(<GoogleOAuthProvider clientId=""><ContinueMenuItem {...props} /></GoogleOAuthProvider>).toJSON();
-    console.log(result);
-    expect(result.type).toBe('div');
-  });
-  it('shows logout button when authenticated', () => {
-    const props = {
-      menu: {
-        classname: '', type: 'googleLogout', iconClass: '', link: '', name: '',
-      },
-      index: 1,
-      auth: {
-        isAuthenticated: true,
-        error: '',
-        token: '',
-        user: {
-          userType: '',
-          email: '',
-        },
-      },
-      pathname: '',
-      handleClose: jest.fn(),
-    };
-    const result: any = renderer.create(<GoogleOAuthProvider clientId=""><ContinueMenuItem {...props} /></GoogleOAuthProvider>).toJSON();
-    console.log(result);
-    expect(result.type).toBe('div');
   });
   it('renders anchor when type is not link', () => {
     const menu = {

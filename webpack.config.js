@@ -13,7 +13,7 @@ const ensureArray = (config) => config && (Array.isArray(config) ? config : [con
 const when = (condition, config, negativeConfig) => (condition ? ensureArray(config) : ensureArray(negativeConfig));
 
 // primary config:
-const title = 'College Lutheran Church';
+const title = 'React Template';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const baseUrl = '/';
@@ -33,9 +33,10 @@ module.exports = (env) => ({
 
   entry: {
     app: [`${srcDir}/Main.tsx`],
-    vendor: [
-      // 'jquery', 
-    'bootstrap'],
+  //   vendor: [
+  //     // 'jquery', 
+  //   // 'bootstrap'
+  // ],
   },
 
   mode: env.production ? 'production' : 'development',
@@ -117,9 +118,6 @@ module.exports = (env) => ({
 
   plugins: [
     new ProvidePlugin({
-      // $: 'jquery',
-      // jQuery: 'jquery',
-      // 'window.jQuery': 'jquery',
       process: 'process/browser',
       Buffer: ['buffer', 'Buffer'],
     }),
@@ -137,7 +135,7 @@ module.exports = (env) => ({
       ],
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV',
-      'BackendUrl', 'GoogleClientId', 'userRoles', 'HashString', 'TINY_KEY']),
+      'BACKEND_URL']),
     ...when(env.analyze, new BundleAnalyzerPlugin()),
   ],
 });

@@ -8,10 +8,10 @@ import {
 
 export const populateContent = async (setContent: (arg0:Icontent)=> void) => {
   try {
-    const { data: homePage } = await axios.get(`${process.env.BackendUrl}/book/one?type=homePageContent`);
-    const { data: youthPage } = await axios.get(`${process.env.BackendUrl}/book/one?type=youthPageContent`);
-    const { data: habitatPage } = await axios.get(`${process.env.BackendUrl}/book/one?type=habitatPageContent`);
-    const { data: stewardshipPage } = await axios.get(`${process.env.BackendUrl}/book/one?type=stewardshipPageContent`);
+    const { data: homePage } = await axios.get(`${process.env.BACKEND_URL}/book/one?type=homePageContent`);
+    const { data: youthPage } = await axios.get(`${process.env.BACKEND_URL}/book/one?type=youthPageContent`);
+    const { data: habitatPage } = await axios.get(`${process.env.BACKEND_URL}/book/one?type=habitatPageContent`);
+    const { data: stewardshipPage } = await axios.get(`${process.env.BACKEND_URL}/book/one?type=stewardshipPageContent`);
     setContent({
       homePage,
       youthPage,
@@ -38,11 +38,11 @@ export const populateContent = async (setContent: (arg0:Icontent)=> void) => {
 
 export const populatePictures = async (setPictures: (arg0:IpictureTypes)=> void) => {
   try {
-    const { data: musicPics } = await axios.get(`${process.env.BackendUrl}/book?type=musicPics`);
-    const { data: familyPics } = await axios.get(`${process.env.BackendUrl}/book?type=familyPics`);
-    const { data: youthPics } = await axios.get(`${process.env.BackendUrl}/book?type=youthPics`);
-    const { data: habitatPics } = await axios.get(`${process.env.BackendUrl}/book?type=habitatPics`);
-    const { data: otherPics } = await axios.get(`${process.env.BackendUrl}/book?type=otherPics`);
+    const { data: musicPics } = await axios.get(`${process.env.BACKEND_URL}/book?type=musicPics`);
+    const { data: familyPics } = await axios.get(`${process.env.BACKEND_URL}/book?type=familyPics`);
+    const { data: youthPics } = await axios.get(`${process.env.BACKEND_URL}/book?type=youthPics`);
+    const { data: habitatPics } = await axios.get(`${process.env.BACKEND_URL}/book?type=habitatPics`);
+    const { data: otherPics } = await axios.get(`${process.env.BACKEND_URL}/book?type=otherPics`);
     const pictures = {
       musicPics, familyPics, youthPics, habitatPics, otherPics,
     };
@@ -52,7 +52,7 @@ export const populatePictures = async (setPictures: (arg0:IpictureTypes)=> void)
 
 export const populateNews = async (setNews: (arg0:Inews)=> void) => {
   try {
-    const { data } = await axios.get(`${process.env.BackendUrl}/book?type=Forum`);
+    const { data } = await axios.get(`${process.env.BACKEND_URL}/book?type=Forum`);
     if (Array.isArray(data)) {
       data.sort((a, b) => {
         if (a.created_at && b.created_at) {
