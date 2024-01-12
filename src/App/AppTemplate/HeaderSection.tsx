@@ -13,10 +13,10 @@ export function HeaderSection(): JSX.Element {
           }}
         >
           <h2 className="header-text" style={{ marginBottom: '-1px', marginTop: '1px', fontSize: '25px' }}>
-            <a className="header-text" href="/" style={{ textAlign: 'left', textDecoration: 'none' }}>College Lutheran Church</a>
+            <a className="header-text" href="/" style={{ textAlign: 'left', textDecoration: 'none' }}>React Template</a>
           </h2>
           <p className="subTitle" style={{ maxWidth: '100%', color: '#f4c00eff' }}>
-            We celebrate God&apos;s grace and share His love in Christ!
+            A React Template
           </p>
         </div>
       </div>
