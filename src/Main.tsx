@@ -10,7 +10,7 @@ import '../static/styles.scss';
 import { ContentProvider } from './providers/Content.provider';
 
 export const client = new ApolloClient({
-  uri: `${process.env.BACKEND_URL}/graphql`, // TODO use same backendurl here
+  uri: `${process.env.BACKEND_URL}/graphql`,
   cache: new InMemoryCache(),
 });
 

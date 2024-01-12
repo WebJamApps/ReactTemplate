@@ -28,20 +28,7 @@ exports[`App component renders the component 1`] = `
       >
         <div
           className="navImage"
-        >
-          <img
-            alt="Luther Rose"
-            id="webjamwidelogo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Lutherrose.svg/800px-Lutherrose.svg.png"
-            style={
-              {
-                "marginLeft": 0,
-                "marginRight": 0,
-                "width": "86px",
-              }
-            }
-          />
-        </div>
+        />
         <div
           className="nav-list"
           style={
@@ -75,21 +62,7 @@ exports[`App component renders the component 1`] = `
                 }
               }
             >
-              <a
-                className="menu-hover"
-                href="http://bit.ly/CollegeLutheranDirections"
-                style={
-                  {
-                    "color": "#88c1ff",
-                  }
-                }
-              >
-                <span>
-                  210 S. College Ave
-                </span>
-              </a>
               <br />
-              Salem, VA 24153
             </p>
           </div>
           <div
@@ -110,41 +83,8 @@ exports[`App component renders the component 1`] = `
                 }
               }
             >
-              <span>
-                ph: 
-              </span>
-              <a
-                className="menu-hover"
-                href="tel:5403894963"
-                style={
-                  {
-                    "color": "#88c1ff",
-                  }
-                }
-              >
-                (540) 389-4963
-              </a>
               <br />
-              <span>
-                fax: 
-              </span>
-              (540) 389-4980
               <br />
-              <a
-                href="mailto:office1@collegelutheran.org"
-                style={
-                  {
-                    "color": "#88c1ff",
-                    "wordWrap": "break-word",
-                  }
-                }
-              >
-                <span
-                  className="menu-hover"
-                >
-                  office1@collegelutheran.org
-                </span>
-              </a>
             </p>
           </div>
           <div
