@@ -13,8 +13,8 @@ export const menuItems:ImenuItem[] = [
     classname: '',
     type: 'link',
     iconClass: 'fas fa-users',
-    link: '/staff',
-    name: 'Church Staff',
+    link: '/page2',
+    name: 'page2',
   },
   {
     classname: 'home',

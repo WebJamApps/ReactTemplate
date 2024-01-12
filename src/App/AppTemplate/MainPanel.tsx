@@ -1,4 +1,3 @@
-import { Footer } from './Footer';
 import { HeaderSection } from './HeaderSection';
 
 export function MainPanel({ children, onClick, onKeyPress }:any) {
@@ -18,7 +17,6 @@ export function MainPanel({ children, onClick, onKeyPress }:any) {
         <HeaderSection />
         <div style={{ width: 'auto' }} id="contentBlock" className="content-block">
           {children}
-          <Footer />
         </div>
       </div>
     </div>

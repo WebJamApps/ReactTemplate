@@ -3,10 +3,6 @@ import {
 } from 'src/App/AppTemplate/SideMenuItem';
 import renderer from 'react-test-renderer';
 
-jest.mock('react-redux', () => ({
-  useSelector: jest.fn(),
-  useDispatch: jest.fn(),
-}));
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: jest.fn().mockReturnValue({ pathname: '/staff' }),
